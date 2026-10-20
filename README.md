@@ -35,20 +35,20 @@ const josua = {
 ### `$ ls -la ~/projects`
 
 <details open>
-<summary><strong>🌐 Web projects</strong></summary>
-
-| Project | Repository |
-| :--- | :--- |
-| Personal website | [josuacabanting.github.io](https://github.com/josuacabanting/josuacabanting.github.io) |
-
-</details>
-
-<details open>
 <summary><strong>🛡️ Cybersecurity labs</strong></summary>
 
 | Lab | What it covers |
 | :--- | :--- |
 | [Tenable Core and Nessus installation](./tenable-core-nessus-virtualbox-lab.md) | VirtualBox deployment, appliance networking, scanner setup, validation, and recovery. |
+
+</details>
+
+<details open>
+<summary><strong>🌐 Web projects</strong></summary>
+
+| Project | Repository |
+| :--- | :--- |
+| Personal website | [josuacabanting.github.io](https://github.com/josuacabanting/josuacabanting.github.io) |
 
 </details>
 
