@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./profile-banner.svg" alt="JOSUA — welcome to my corner of GitHub" width="100%" />
+  <img src="./profile-banner-led.svg" alt="JOSUA — welcome to my corner of GitHub" width="100%" />
 </p>
 
 <p align="center">
@@ -72,4 +72,5 @@ Browse my [repositories](https://github.com/josuacabanting?tab=repositories) to 
 - **Email:** [josuaocabanting@gmail.com](mailto:josuaocabanting@gmail.com)
 
 <p align="center"><sub>Thanks for stopping by. See you in the next commit.</sub></p>
+
 
