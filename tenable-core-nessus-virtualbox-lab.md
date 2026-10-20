@@ -1,4 +1,4 @@
-# ![Tenable Core and Nessus installation lab](./tenable-nessus-lab-header.svg)
+# ![Tenable Core and Nessus installation lab](./tenable-lab-header-logo.svg)
 
 This lab documents the deployment of Tenable Core with Nessus on Oracle Linux 8 in Oracle VirtualBox. It covers virtual machine creation, appliance installation, network configuration, scanner setup, validation, and recovery.
 
@@ -334,7 +334,7 @@ Restore or rebuild according to the lab's recovery needs. A VM snapshot does not
 
 ## References
 
-- [Nessus product logo source](https://www.tenable.com/products/nessus). Nessus and the product logo belong to Tenable. This is an independent lab write-up.
+- [Tenable](https://www.tenable.com/). The Tenable logo is used to identify the product vendor. This is an independent lab write-up.
 
 - [Tenable Nessus documentation](https://docs.tenable.com/Nessus.htm)
 - [Tenable Nessus system requirements](https://docs.tenable.com/nessus/Content/SystemRequirements.htm)
