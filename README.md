@@ -55,10 +55,6 @@ Browse my [repositories](https://github.com/josuacabanting?tab=repositories) to 
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/NMAP-214478?style=for-the-badge" alt="Nmap" />
-  <img src="https://img.shields.io/badge/PACKET%20TRACER-1BA0D7?style=for-the-badge&amp;logo=cisco&amp;logoColor=white" alt="Packet Tracer" />
-  <img src="https://img.shields.io/badge/SIEM-7C3AED?style=for-the-badge" alt="SIEM" />
-  <br />
   <img src="https://img.shields.io/badge/NETGAIN%20SYSTEMS-238636?style=for-the-badge" alt="NetGain Systems" />
   <img src="https://img.shields.io/badge/TENABLE-0077C8?style=for-the-badge" alt="Tenable" />
   <img src="https://img.shields.io/badge/NINJAONE-00A4EF?style=for-the-badge" alt="NinjaOne" />
@@ -68,6 +64,11 @@ Browse my [repositories](https://github.com/josuacabanting?tab=repositories) to 
   <img src="https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&amp;logo=linux&amp;logoColor=black" alt="Linux" />
   <img src="https://img.shields.io/badge/WIRESHARK-1679A7?style=for-the-badge&amp;logo=wireshark&amp;logoColor=white" alt="Wireshark" />
   <img src="https://img.shields.io/badge/GRAFANA-F46800?style=for-the-badge&amp;logo=grafana&amp;logoColor=white" alt="Grafana" />
+  <br />
+  <img src="https://img.shields.io/badge/NMAP-214478?style=for-the-badge" alt="Nmap" />
+  <img src="https://img.shields.io/badge/PACKET%20TRACER-1BA0D7?style=for-the-badge&amp;logo=cisco&amp;logoColor=white" alt="Packet Tracer" />
+  <img src="https://img.shields.io/badge/SIEM-7C3AED?style=for-the-badge" alt="SIEM" />
+  <br />
   <img src="https://img.shields.io/badge/CODEX-412991?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="Codex" />
   <img src="https://img.shields.io/badge/CLAUDE-D97757?style=for-the-badge&amp;logo=claude&amp;logoColor=white" alt="Claude" />
   <br />
