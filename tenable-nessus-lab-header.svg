@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-labelledby="title description">
+  <title id="title">Tenable Core and Nessus installation lab</title>
+  <desc id="description">The Nessus product symbol on the left, followed by the lab title in blue and white on a navy banner.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#031b3d"/>
+      <stop offset="1" stop-color="#064f82"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="220" rx="12" fill="url(#background)"/>
+  <rect x="0" y="0" width="8" height="220" rx="4" fill="#00a5e5"/>
+  <!-- Nessus product symbol from https://www.tenable.com/products/nessus -->
+  <g transform="translate(60 30) scale(.55)" fill="#ffffff">
+    <path d="M66.336 95.8314L99.4997 76.6698L132.664 95.8312V134.169L99.4996 153.33L66.336 134.169V95.8314ZM199 57.4887V172.511L99.4987 230L0 172.511V57.4893L99.4991 0L199 57.4887ZM165.832 76.6599L99.4994 38.3348L33.168 76.6603V153.34L99.4991 191.665L165.832 153.34V76.6599Z"/>
+  </g>
+  <text x="115" y="189" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="3">NESSUS</text>
+  <path d="M220 38V182" stroke="#2a719d" stroke-width="1"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="264" y="85" fill="#43c7ff" font-size="46" font-weight="700">Tenable Core + Nessus</text>
+    <text x="264" y="135" fill="#ffffff" font-size="36" font-weight="600">Installation lab</text>
+    <text x="266" y="177" fill="#b9d9ef" font-size="21">Oracle Linux 8 &#183; Oracle VirtualBox</text>
+  </g>
+</svg>
