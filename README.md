@@ -4,7 +4,7 @@
 
 <p align="center">
   <strong>Josua Cabanting · Engr_Owa</strong><br />
-  <em>One idea. One commit. One step forward.</em>
+  <em>Monitor. Detect. Defend. 🛡️</em>
 </p>
 
 <p align="center">
