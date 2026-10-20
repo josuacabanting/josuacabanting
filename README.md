@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./profile-banner-led.svg" alt="JOSUA — welcome to my corner of GitHub" width="100%" />
+  <img src="./owa-banner.svg" alt="OWA — green LED banner" width="420" />
 </p>
 
 <p align="center">
