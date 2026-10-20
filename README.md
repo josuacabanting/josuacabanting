@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./owa-banner.svg" alt="OWA — green LED banner" width="420" />
+  <img src="./owa-banner.svg" alt="OWA — green LED banner" width="300" />
 </p>
 
 <p align="center">
