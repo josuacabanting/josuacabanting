@@ -20,7 +20,7 @@ These allocations describe this lab, rather than universal minimum requirements.
 
 ## Values to supply locally
 
-Use your own values wherever a placeholder appears. Angle brackets indicate placeholders and should not be entered literally.
+Use your own values wherever a placeholder appears. Angle brackets indicate placeholders and should not be entered literally. Configuration examples use color highlighting: the quoted values are the settings you replace. These examples show field values, not commands to run.
 
 | Placeholder | Purpose |
 | :--- | :--- |
@@ -173,10 +173,10 @@ Record the address displayed on the appliance console. If the lab needs a static
 
 Supply the following values for your lab:
 
-```text
-IPv4 address: <LAB_SCANNER_IP>/<LAB_PREFIX_LENGTH>
-Gateway:      <LAB_GATEWAY>
-DNS server:   <LAB_DNS_SERVER>
+```yaml
+IPv4 address: "<LAB_SCANNER_IP>/<LAB_PREFIX_LENGTH>"
+Gateway:      "<LAB_GATEWAY>"
+DNS server:   "<LAB_DNS_SERVER>"
 ```
 
 Save the configuration and reconnect or reboot if required by the appliance. Confirm that your administration workstation can reach the configured lab address.
@@ -207,13 +207,18 @@ Save the configuration and reconnect or reboot if required by the appliance. Con
 
 Open the appliance interface:
 
-```text
-https://<LAB_SCANNER_IP>:8000
+```yaml
+Tenable Core URL: "https://<LAB_SCANNER_IP>:8000"
 ```
 
 Complete the first-login workflow described for your image. If the appliance presents a self-signed certificate, verify the endpoint and certificate through a trusted channel before establishing trust.
 
 Create a dedicated administrator account with your own `<LOCAL_ADMIN_USERNAME>` and `<LOCAL_ADMIN_PASSWORD>`. Store the password securely and complete any required first-login credential changes. Avoid publishing credentials in notes, screenshots, or command history.
+
+```yaml
+Administrator username: "<LOCAL_ADMIN_USERNAME>"
+Administrator password: "<LOCAL_ADMIN_PASSWORD>"
+```
 
 
 <details>
@@ -233,8 +238,8 @@ Create a dedicated administrator account with your own `<LOCAL_ADMIN_USERNAME>` 
 
 Open the Nessus interface:
 
-```text
-https://<LAB_SCANNER_IP>:8834
+```yaml
+Nessus URL: "https://<LAB_SCANNER_IP>:8834"
 ```
 
 Select the deployment mode appropriate for your lab and entitlement. For a scanner managed by Tenable Vulnerability Management:
@@ -243,6 +248,10 @@ Select the deployment mode appropriate for your lab and entitlement. For a scann
 2. Retrieve the linking key through that account's authorized workflow.
 3. Select the managed-scanner option in Nessus and enter `<SCANNER_LINKING_KEY>` locally.
 4. Confirm that the scanner connects to the intended manager.
+
+```yaml
+Scanner linking key: "<SCANNER_LINKING_KEY>"
+```
 
 A linking key is a secret. Do not put the actual value in this repository. For standalone deployments, follow the applicable activation workflow instead; a managed-scanner linking key and a standalone activation code serve different purposes.
 
