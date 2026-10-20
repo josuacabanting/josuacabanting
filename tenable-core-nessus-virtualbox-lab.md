@@ -32,7 +32,7 @@ Use your own values wherever a placeholder appears. Angle brackets indicate plac
 | `<LOCAL_ADMIN_PASSWORD>` | Unique password kept in your password manager |
 | `<SCANNER_LINKING_KEY>` | Private linking key, only when using a managed deployment |
 
-No working credentials, usernames, keys, addresses, or customer identifiers are supplied in this guide. Screenshots from the original procedure are omitted.
+No working credentials, usernames, keys, addresses, or customer identifiers are supplied in this guide. The screenshots below have sensitive fields blurred and image metadata removed. They illustrate the recorded installation; screen versions, defaults, and setup order may differ. Follow the written lab configuration when reproducing the procedure.
 
 ## 1 Prepare the installer
 
@@ -40,6 +40,24 @@ No working credentials, usernames, keys, addresses, or customer identifiers are 
 2. Select the image appropriate for your architecture and deployment. This walkthrough follows an Oracle Linux 8 ISO installation.
 3. Verify the download against the publisher's available integrity information.
 4. Save the ISO where VirtualBox can access it.
+
+
+<details>
+<summary>Download screenshots</summary>
+
+**Tenable Core download page with account details blurred**
+
+![Tenable Core download page with account details blurred](./nessus-lab-05.png)
+
+**Selecting the installation ISO**
+
+![Selecting the installation ISO](./nessus-lab-06.png)
+
+**Installer download license review dialog**
+
+![Installer download license review dialog](./nessus-lab-07.png)
+
+</details>
 
 ## 2 Create the virtual machine
 
@@ -49,6 +67,36 @@ No working credentials, usernames, keys, addresses, or customer identifiers are 
 4. Allocate the CPU, memory, and disk capacity listed above, subject to the requirements of your selected image.
 5. Create a dynamically allocated VDI disk dedicated to this lab VM.
 
+
+<details>
+<summary>Virtual machine setup screenshots</summary>
+
+**VirtualBox Manager**
+
+![VirtualBox Manager](./nessus-lab-08.png)
+
+**Virtual machine name and operating system with local path blurred**
+
+![Virtual machine name and operating system with local path blurred](./nessus-lab-10.png)
+
+**Selecting the ISO with personal paths blurred**
+
+![Selecting the ISO with personal paths blurred](./nessus-lab-11.png)
+
+**Skipping unattended installation with local paths blurred**
+
+![Skipping unattended installation with local paths blurred](./nessus-lab-12.png)
+
+**Memory and processor allocation**
+
+![Memory and processor allocation](./nessus-lab-13.png)
+
+**Virtual disk configuration with local path blurred**
+
+![Virtual disk configuration with local path blurred](./nessus-lab-14.png)
+
+</details>
+
 ## 3 Configure lab networking
 
 Use a dedicated lab network that permits administration and access to explicitly authorized test systems. The source installation workflow uses a bridged adapter; select the intended physical interface if reproducing that setup. A bridged VM joins that network, so choose a suitable lab segment.
@@ -56,6 +104,16 @@ Use a dedicated lab network that permits administration and access to explicitly
 For an isolated setup, use host-only or internal networking as appropriate, with a separate controlled route for updates if needed. NAT can affect scanner visibility and behavior, so account for that when choosing the topology.
 
 Keep promiscuous mode at its default unless a specific lab requirement calls for it. Do not expose the administration interfaces to the public internet.
+
+
+<details>
+<summary>Network adapter screenshot</summary>
+
+**VirtualBox network adapter selection**
+
+![VirtualBox network adapter selection](./nessus-lab-15.png)
+
+</details>
 
 ## 4 Install Tenable Core
 
@@ -66,6 +124,48 @@ Keep promiscuous mode at its default unless a specific lab requirement calls for
 5. Resolve installation warnings before continuing. Review security-profile partition requirements rather than dismissing them automatically.
 6. Begin installation and allow it to complete without powering off the VM.
 7. Reboot, detach the ISO from the virtual optical drive, and boot from the installed disk.
+
+
+<details>
+<summary>Installation screenshots</summary>
+
+**Tenable Core boot menu**
+
+![Tenable Core boot menu](./nessus-lab-16.png)
+
+**Installer boot messages**
+
+![Installer boot messages](./nessus-lab-17.png)
+
+**Installation summary**
+
+![Installation summary](./nessus-lab-18.png)
+
+**Selecting the installation disk**
+
+![Selecting the installation disk](./nessus-lab-19.png)
+
+**Space reclamation prompt**
+
+![Space reclamation prompt](./nessus-lab-20.png)
+
+**Reviewing installation options**
+
+![Reviewing installation options](./nessus-lab-21.png)
+
+**Beginning installation**
+
+![Beginning installation](./nessus-lab-22.png)
+
+**Installation progress**
+
+![Installation progress](./nessus-lab-23.png)
+
+**Virtual optical drive configuration with local path blurred**
+
+![Virtual optical drive configuration with local path blurred](./nessus-lab-24.png)
+
+</details>
 
 ## 5 Configure the appliance address
 
@@ -81,6 +181,28 @@ DNS server:   <LAB_DNS_SERVER>
 
 Save the configuration and reconnect or reboot if required by the appliance. Confirm that your administration workstation can reach the configured lab address.
 
+
+<details>
+<summary>Appliance networking screenshots</summary>
+
+**First boot console with host and login details blurred**
+
+![First boot console with host and login details blurred](./nessus-lab-25.png)
+
+**Static address setup prompt with host and login details blurred**
+
+![Static address setup prompt with host and login details blurred](./nessus-lab-26.png)
+
+**Selecting the network connection**
+
+![Selecting the network connection](./nessus-lab-28.png)
+
+**Editing IPv4 configuration with network identifiers blurred**
+
+![Editing IPv4 configuration with network identifiers blurred](./nessus-lab-29.png)
+
+</details>
+
 ## 6 Configure administrative access
 
 Open the appliance interface:
@@ -92,6 +214,20 @@ https://<LAB_SCANNER_IP>:8000
 Complete the first-login workflow described for your image. If the appliance presents a self-signed certificate, verify the endpoint and certificate through a trusted channel before establishing trust.
 
 Create a dedicated administrator account with your own `<LOCAL_ADMIN_USERNAME>` and `<LOCAL_ADMIN_PASSWORD>`. Store the password securely and complete any required first-login credential changes. Avoid publishing credentials in notes, screenshots, or command history.
+
+
+<details>
+<summary>Appliance access screenshots</summary>
+
+**Appliance login page with account and host details blurred**
+
+![Appliance login page with account and host details blurred](./nessus-lab-31.png)
+
+**Appliance administrator login with account and host details blurred**
+
+![Appliance administrator login with account and host details blurred](./nessus-lab-33.png)
+
+</details>
 
 ## 7 Set up Nessus
 
@@ -112,6 +248,48 @@ A linking key is a secret. Do not put the actual value in this repository. For s
 
 Allow plugins and initial configuration to finish before assessing scanner readiness.
 
+
+<details>
+<summary>Nessus setup and linking screenshots</summary>
+
+**Tenable workspace navigation**
+
+![Tenable workspace navigation](./nessus-lab-01.png)
+
+**Settings and sensor management**
+
+![Settings and sensor management](./nessus-lab-02.png)
+
+**Scanner management page with account data blurred**
+
+![Scanner management page with account data blurred](./nessus-lab-03.png)
+
+**Linking key location with the key and command values blurred**
+
+![Linking key location with the key and command values blurred](./nessus-lab-04.png)
+
+**Nessus account creation with credentials blurred**
+
+![Nessus account creation with credentials blurred](./nessus-lab-34.png)
+
+**Nessus setup welcome page**
+
+![Nessus setup welcome page](./nessus-lab-35.png)
+
+**Choosing a managed deployment**
+
+![Choosing a managed deployment](./nessus-lab-36.png)
+
+**Managed scanner linking form**
+
+![Managed scanner linking form](./nessus-lab-38.png)
+
+**Linking key entry with the secret blurred**
+
+![Linking key entry with the secret blurred](./nessus-lab-39.png)
+
+</details>
+
 ## 8 Validate the installation
 
 Use this checklist when reproducing the lab. These are validation steps, not a record of tests performed by this public guide.
@@ -126,6 +304,16 @@ Use this checklist when reproducing the lab. These are validation steps, not a r
 - [ ] Access to the management interfaces is restricted to the intended lab users and network.
 
 Only scan systems you own or have explicit authorization to assess. Define the target scope before starting a scan.
+
+
+<details>
+<summary>Scanner validation screenshot</summary>
+
+**Linked scanner validation with hostnames and addresses blurred**
+
+![Linked scanner validation with hostnames and addresses blurred](./nessus-lab-40.png)
+
+</details>
 
 ## 9 Recovery
 
