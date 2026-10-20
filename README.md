@@ -52,17 +52,28 @@ Browse my [repositories](https://github.com/josuacabanting?tab=repositories) to 
 
 ---
 
-### `$ cat tech-stack.json`
+## 🛠️ Tech Stack
 
-```json
-{
-  "web": ["HTML"],
-  "workspace": ["Git", "GitHub"],
-  "mindset": "Always learning"
-}
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/NETGAIN%20SYSTEMS-238636?style=for-the-badge" alt="NetGain Systems" />
+  <img src="https://img.shields.io/badge/TENABLE-0077C8?style=for-the-badge" alt="Tenable" />
+  <img src="https://img.shields.io/badge/NINJAONE-00A4EF?style=for-the-badge" alt="NinjaOne" />
+  <img src="https://img.shields.io/badge/LIVEACTION-F58220?style=for-the-badge" alt="LiveAction" />
+  <br />
+  <img src="https://img.shields.io/badge/VMWARE-607078?style=for-the-badge&amp;logo=vmware&amp;logoColor=white" alt="VMware" />
+  <img src="https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&amp;logo=linux&amp;logoColor=black" alt="Linux" />
+  <img src="https://img.shields.io/badge/WIRESHARK-1679A7?style=for-the-badge&amp;logo=wireshark&amp;logoColor=white" alt="Wireshark" />
+  <img src="https://img.shields.io/badge/GRAFANA-F46800?style=for-the-badge&amp;logo=grafana&amp;logoColor=white" alt="Grafana" />
+  <img src="https://img.shields.io/badge/CODEX-412991?style=for-the-badge&amp;logo=openai&amp;logoColor=white" alt="Codex" />
+  <img src="https://img.shields.io/badge/CLAUDE-D97757?style=for-the-badge&amp;logo=claude&amp;logoColor=white" alt="Claude" />
+  <br />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&amp;logo=css&amp;logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&amp;logo=javascript&amp;logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/GIT-F05032?style=for-the-badge&amp;logo=git&amp;logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub" />
+</p>
 
-<!-- Add other technologies here as your stack grows. -->
 
 ---
 
