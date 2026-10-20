@@ -43,6 +43,15 @@ const josua = {
 
 </details>
 
+<details open>
+<summary><strong>🛡️ Cybersecurity labs</strong></summary>
+
+| Lab | What it covers |
+| :--- | :--- |
+| [Tenable Core and Nessus installation](./tenable-core-nessus-virtualbox-lab.md) | VirtualBox deployment, appliance networking, scanner setup, validation, and recovery. |
+
+</details>
+
 <details>
 <summary><strong>🧪 More from my workspace</strong></summary>
 

@@ -1,0 +1,143 @@
+# Tenable Core and Nessus installation lab
+
+This lab documents the deployment of Tenable Core with Nessus on Oracle Linux 8 in Oracle VirtualBox. It covers virtual machine creation, appliance installation, network configuration, scanner setup, validation, and recovery.
+
+The goal is to prepare a vulnerability scanner for a controlled lab environment. This guide does not include scan results or claim that any target has been assessed.
+
+## Environment
+
+| Component | Lab configuration |
+| :--- | :--- |
+| Hypervisor | Oracle VirtualBox |
+| Guest | Tenable Core with Nessus on Oracle Linux 8, x86_64 |
+| CPU | 4 vCPU initially; 8 vCPU if host capacity allows |
+| Memory | 8 GB initially; 16 GB if host capacity allows |
+| Virtual disk | 100 GB dynamically allocated VDI |
+| Appliance administration | HTTPS on TCP 8000 |
+| Nessus administration | HTTPS on TCP 8834 |
+
+These allocations describe this lab, rather than universal minimum requirements. Check the requirements for the image and scanner version you intend to deploy. VirtualBox is the hypervisor used in this walkthrough; consult Tenable's supported platforms before choosing a production deployment.
+
+## Values to supply locally
+
+Use your own values wherever a placeholder appears. Angle brackets indicate placeholders and should not be entered literally.
+
+| Placeholder | Purpose |
+| :--- | :--- |
+| `<LAB_SCANNER_IP>` | Address assigned to the lab appliance |
+| `<LAB_PREFIX_LENGTH>` | Network prefix for the lab subnet |
+| `<LAB_GATEWAY>` | Gateway for the lab network, if needed |
+| `<LAB_DNS_SERVER>` | Resolver reachable from the appliance |
+| `<LOCAL_ADMIN_USERNAME>` | Administrator account created for your lab |
+| `<LOCAL_ADMIN_PASSWORD>` | Unique password kept in your password manager |
+| `<SCANNER_LINKING_KEY>` | Private linking key, only when using a managed deployment |
+
+No working credentials, usernames, keys, addresses, or customer identifiers are supplied in this guide. Screenshots from the original procedure are omitted.
+
+## 1 Prepare the installer
+
+1. Obtain the Tenable Core with Nessus ISO from [Tenable Downloads](https://www.tenable.com/downloads/tenable-appliance).
+2. Select the image appropriate for your architecture and deployment. This walkthrough follows an Oracle Linux 8 ISO installation.
+3. Verify the download against the publisher's available integrity information.
+4. Save the ISO where VirtualBox can access it.
+
+## 2 Create the virtual machine
+
+1. In VirtualBox, select **New** and use a generic name such as `nessus-lab`.
+2. Select **Linux** and the matching **Oracle Linux 64-bit** guest type.
+3. Attach the installation ISO. Select **Skip Unattended Installation** when available so the appliance installer controls setup.
+4. Allocate the CPU, memory, and disk capacity listed above, subject to the requirements of your selected image.
+5. Create a dynamically allocated VDI disk dedicated to this lab VM.
+
+## 3 Configure lab networking
+
+Use a dedicated lab network that permits administration and access to explicitly authorized test systems. The source installation workflow uses a bridged adapter; select the intended physical interface if reproducing that setup. A bridged VM joins that network, so choose a suitable lab segment.
+
+For an isolated setup, use host-only or internal networking as appropriate, with a separate controlled route for updates if needed. NAT can affect scanner visibility and behavior, so account for that when choosing the topology.
+
+Keep promiscuous mode at its default unless a specific lab requirement calls for it. Do not expose the administration interfaces to the public internet.
+
+## 4 Install Tenable Core
+
+1. Start the VM and select **Install Tenable Core**.
+2. Open **Installation Destination** and select only the new virtual disk created for this lab.
+3. Use the partition layout appropriate for your image and security requirements.
+4. If the installer requests space reclamation, verify the selected disk belongs to this disposable lab VM before removing any partitions. Do not select host disks or disks containing data you need.
+5. Resolve installation warnings before continuing. Review security-profile partition requirements rather than dismissing them automatically.
+6. Begin installation and allow it to complete without powering off the VM.
+7. Reboot, detach the ISO from the virtual optical drive, and boot from the installed disk.
+
+## 5 Configure the appliance address
+
+Record the address displayed on the appliance console. If the lab needs a static address, open the console's network configuration workflow and edit the appropriate interface.
+
+Supply the following values for your lab:
+
+```text
+IPv4 address: <LAB_SCANNER_IP>/<LAB_PREFIX_LENGTH>
+Gateway:      <LAB_GATEWAY>
+DNS server:   <LAB_DNS_SERVER>
+```
+
+Save the configuration and reconnect or reboot if required by the appliance. Confirm that your administration workstation can reach the configured lab address.
+
+## 6 Configure administrative access
+
+Open the appliance interface:
+
+```text
+https://<LAB_SCANNER_IP>:8000
+```
+
+Complete the first-login workflow described for your image. If the appliance presents a self-signed certificate, verify the endpoint and certificate through a trusted channel before establishing trust.
+
+Create a dedicated administrator account with your own `<LOCAL_ADMIN_USERNAME>` and `<LOCAL_ADMIN_PASSWORD>`. Store the password securely and complete any required first-login credential changes. Avoid publishing credentials in notes, screenshots, or command history.
+
+## 7 Set up Nessus
+
+Open the Nessus interface:
+
+```text
+https://<LAB_SCANNER_IP>:8834
+```
+
+Select the deployment mode appropriate for your lab and entitlement. For a scanner managed by Tenable Vulnerability Management:
+
+1. In your own Tenable account, open the scanner or sensor management workflow.
+2. Retrieve the linking key through that account's authorized workflow.
+3. Select the managed-scanner option in Nessus and enter `<SCANNER_LINKING_KEY>` locally.
+4. Confirm that the scanner connects to the intended manager.
+
+A linking key is a secret. Do not put the actual value in this repository. For standalone deployments, follow the applicable activation workflow instead; a managed-scanner linking key and a standalone activation code serve different purposes.
+
+Allow plugins and initial configuration to finish before assessing scanner readiness.
+
+## 8 Validate the installation
+
+Use this checklist when reproducing the lab. These are validation steps, not a record of tests performed by this public guide.
+
+- [ ] Tenable Core administration loads on TCP 8000 from the permitted workstation.
+- [ ] Nessus administration loads on TCP 8834 from the permitted workstation.
+- [ ] The dedicated administrator account works.
+- [ ] The network address, route, DNS, and system time are correct.
+- [ ] Required updates and plugins have completed successfully.
+- [ ] The intended scan templates are available for the selected deployment.
+- [ ] A managed scanner appears in the intended manager, if linking was configured.
+- [ ] Access to the management interfaces is restricted to the intended lab users and network.
+
+Only scan systems you own or have explicit authorization to assess. Define the target scope before starting a scan.
+
+## 9 Recovery
+
+After validating a clean installation, power off the VM and create a clearly named baseline snapshot. Snapshots can contain credentials and other secrets; keep them private.
+
+If installation fails, preserve any logs needed for troubleshooting, then rebuild only the disposable lab VM with the correct image and sufficient resources. If connectivity fails, check the VirtualBox adapter, guest address, prefix, gateway, DNS, routing, and firewall rules before changing settings.
+
+Restore or rebuild according to the lab's recovery needs. A VM snapshot does not necessarily reverse scanner registration or other changes made in an external management service.
+
+## References
+
+- [Tenable Nessus documentation](https://docs.tenable.com/Nessus.htm)
+- [Tenable Nessus system requirements](https://docs.tenable.com/nessus/Content/SystemRequirements.htm)
+- [Tenable sensor security and administration ports](https://docs.tenable.com/vulnerability-management/Content/Settings/Sensors/SensorSecurity.htm)
+- [Oracle VirtualBox documentation](https://www.virtualbox.org/wiki/Documentation)
